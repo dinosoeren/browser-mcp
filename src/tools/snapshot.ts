@@ -19,6 +19,10 @@ export const snapshot: Tool = {
     name: SnapshotTool.shape.name.value,
     description: SnapshotTool.shape.description.value,
     inputSchema: zodToJsonSchema(SnapshotTool.shape.arguments),
+    annotations: {
+      title: "Snapshot",
+      readOnlyHint: true,
+    },
   },
   handle: async (context: Context) => {
     return await captureAriaSnapshot(context);
@@ -30,6 +34,10 @@ export const click: Tool = {
     name: ClickTool.shape.name.value,
     description: ClickTool.shape.description.value,
     inputSchema: zodToJsonSchema(ClickTool.shape.arguments),
+    annotations: {
+      title: "Click",
+      destructiveHint: true,
+    },
   },
   handle: async (context: Context, params) => {
     const validatedParams = ClickTool.shape.arguments.parse(params);
@@ -52,6 +60,10 @@ export const drag: Tool = {
     name: DragTool.shape.name.value,
     description: DragTool.shape.description.value,
     inputSchema: zodToJsonSchema(DragTool.shape.arguments),
+    annotations: {
+      title: "Drag",
+      destructiveHint: true,
+    },
   },
   handle: async (context: Context, params) => {
     const validatedParams = DragTool.shape.arguments.parse(params);
@@ -74,6 +86,10 @@ export const hover: Tool = {
     name: HoverTool.shape.name.value,
     description: HoverTool.shape.description.value,
     inputSchema: zodToJsonSchema(HoverTool.shape.arguments),
+    annotations: {
+      title: "Hover",
+      destructiveHint: true,
+    },
   },
   handle: async (context: Context, params) => {
     const validatedParams = HoverTool.shape.arguments.parse(params);
@@ -96,6 +112,10 @@ export const type: Tool = {
     name: TypeTool.shape.name.value,
     description: TypeTool.shape.description.value,
     inputSchema: zodToJsonSchema(TypeTool.shape.arguments),
+    annotations: {
+      title: "Type",
+      destructiveHint: true,
+    },
   },
   handle: async (context: Context, params) => {
     const validatedParams = TypeTool.shape.arguments.parse(params);
@@ -118,6 +138,10 @@ export const selectOption: Tool = {
     name: SelectOptionTool.shape.name.value,
     description: SelectOptionTool.shape.description.value,
     inputSchema: zodToJsonSchema(SelectOptionTool.shape.arguments),
+    annotations: {
+      title: "Select Option",
+      destructiveHint: true,
+    },
   },
   handle: async (context: Context, params) => {
     const validatedParams = SelectOptionTool.shape.arguments.parse(params);

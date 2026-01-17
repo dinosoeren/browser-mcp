@@ -41,7 +41,14 @@ export async function createServerWithTools(options: Options): Promise<Server> {
   });
 
   server.setRequestHandler(ListToolsRequestSchema, async () => {
-    return { tools: tools.map((tool) => tool.schema) };
+    return {
+      tools: tools.map((tool) => ({
+        name: tool.schema.name,
+        description: tool.schema.description,
+        inputSchema: tool.schema.inputSchema,
+        annotations: tool.schema.annotations,
+      })),
+    };
   });
 
   server.setRequestHandler(ListResourcesRequestSchema, async () => {

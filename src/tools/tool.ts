@@ -1,6 +1,7 @@
 import type {
   ImageContent,
   TextContent,
+  ToolAnnotations,
 } from "@modelcontextprotocol/sdk/types.js";
 import type { JsonSchema7Type } from "zod-to-json-schema";
 
@@ -10,6 +11,7 @@ export type ToolSchema = {
   name: string;
   description: string;
   inputSchema: JsonSchema7Type;
+  annotations?: ToolAnnotations;
 };
 
 export type ToolResult = {
